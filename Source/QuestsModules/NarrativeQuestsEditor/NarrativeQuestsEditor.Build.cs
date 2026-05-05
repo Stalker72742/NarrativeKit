@@ -33,7 +33,8 @@ public class NarrativeQuestsEditor : ModuleRules
                 "PropertyEditor",
                 "EditorStyle",
                 "EditorFramework",
-                "InputCore"
+                "InputCore",
+                "Projects"
             }
         );
     }

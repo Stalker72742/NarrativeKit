@@ -14,6 +14,7 @@
 #include "Graph/SQuestFinishNode.h"
 #include "Quest.h"
 #include "QuestBlueprintGeneratedClass.h"
+#include "Asset/FQuestsStyleSet.h"
 #include "Graph/QuestAsset.h"
 
 #define LOCTEXT_NAMESPACE "FNarrativeQuestsEditorModule"
@@ -66,6 +67,8 @@ void FNarrativeQuestsEditorModule::StartupModule()
 	);
 
 	assetTools.RegisterAssetTypeActions(MakeShareable(new FQuestsGraphAssetActions(NarrativeAssetCategory)));
+	
+	FQuestsStyleSet::Register();
 }
 
 void FNarrativeQuestsEditorModule::ShutdownModule()
@@ -78,6 +81,8 @@ void FNarrativeQuestsEditorModule::ShutdownModule()
 		kismetCompilerModule.GetCompilers().Remove(QuestCompiler.Get());
 		QuestCompiler.Reset();
 	}
+	
+	FQuestsStyleSet::Unregister();
 }
 
 #undef LOCTEXT_NAMESPACE
